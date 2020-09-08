@@ -4,18 +4,15 @@ import './OpenWeather.css';
 
 const WeatherResults = (props) => {
 
-    console.log(props);
+    // console.log(props);
+    let weatherData = props.weatherData;
+    console.log(weatherData);
+
     return(
-        <div>
-            {props.weatherData.map(result => {
-                return (
-                    <div>
-                    <h2>Weather</h2>
-                    {result.weather.object.main};
-                    </div>
-                )
-            })}
-        </div>
+        <Container>
+            <h2>Weather</h2>
+                {weatherData.base}
+        </Container>
     )
 }
 

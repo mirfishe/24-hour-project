@@ -7,7 +7,6 @@ const Zomato = (props) => {
     const [latitude, setLatitude] = useState(props.latitude);
     const [longitude, setLongitude] = useState(props.longitude);
     const [restaurants, setRestaurants] = useState([]);
-    const [weather, setRestaurants] = useState([]);
 
     const fetchRestaurants = () => {
 
@@ -19,14 +18,14 @@ const Zomato = (props) => {
 
         let baseURL = 'https://developers.zomato.com/api/v2.1/search?';
         let searchString = `lat=${latitude}&lon=${longitude}`;
-        let ZOMATO_API_KEY = "ac470f024f2131c285d68377ed5cc6d0";
+        let zomatoAPIKey= "ac470f024f2131c285d68377ed5cc6d0";
         
 
         fetch(`https://developers.zomato.com/api/v2.1/search?lat=${latitude}&lon=${longitude}`, {
             method: 'GET',
             headers:    new Headers ({
                 'Content-Type': 'application/json',
-                'user-key': ZOMATO_API_KEY
+                'user-key': zomatoAPIKey
             })
         })
         .then(res => res.json())
@@ -49,7 +48,7 @@ const Zomato = (props) => {
 
 
     return (
-        <Container>
+        <Container className="border">
             Zomato
         </Container>
     );
