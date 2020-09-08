@@ -1,13 +1,16 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import NASA from './components/NASA/NASA';
+import OpenWeather from  './components/OpenWeather/OpenWeather';
+import Zomato from './components/Zomato/Zomato';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-          Blue Badge 24 Hour Project
-          Development Branch
-      </header>
+      <NASA />
+      <OpenWeather />
+      <Zomato />
     </div>
   );
 }
