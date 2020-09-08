@@ -9,6 +9,12 @@ function App() {
 
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
+  const [locationDataFound, setLocationDataFound] = useState(false);
+
+  useEffect(() => {
+    getLocation();
+    // console.log("Latitude: ", latitude, "Longitude: " + longitude);
+  }, []);
 
   const getLocation = () => {
     if (navigator.geolocation) {
@@ -25,35 +31,27 @@ function App() {
   };
 
   useEffect(() => {
-    getLocation();
-    // console.log("Latitude: ", latitude, "Longitude: " + longitude);
-}, []);
+    if (latitude && longitude) {
+      // console.log("Latitude: ", latitude, "Longitude: " + longitude);
+      setLocationDataFound(true);
+    };
+  }, [latitude, longitude]);
 
-useEffect(() => {
-  console.log("Latitude: ", latitude, "Longitude: " + longitude);
-}, [latitude, longitude]);
-
-    //   const showPosition = (position) => {
-    //     setLatitude(position.coords.latitude);
-    //     setLongitude(position.coords.longitude);
-    //   };
-
-    //   useEffect(() => {
-
-    //     if (navigator.geolocation) {
-    //       navigator.geolocation.getCurrentPosition(showPosition);
-    //     } else {
-    //       console.log("Geolocation is not supported by this browser.");
-    //     };
-
-    //     console.log("Latitude: ", latitude, "Longitude: " + longitude);
-    // }, []);
+const locationComponents = () => {
+  return (
+    <div>
+    <NASA latitude={latitude} longitude={longitude} />
+    <OpenWeather latitude={latitude} longitude={longitude} />
+    <Zomato latitude={latitude} longitude={longitude} />
+    </div>
+  );
+};
 
   return (
-    <div className="App">
-      <NASA latitude={latitude} longitude={longitude} />
-      <OpenWeather latitude={latitude} longitude={longitude} />
-      <Zomato latitude={latitude} longitude={longitude} />
+    <div>
+      {
+        locationDataFound ? locationComponents() : ''
+      }
     </div>
   );
 }
