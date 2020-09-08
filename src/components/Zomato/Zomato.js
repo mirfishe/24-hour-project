@@ -7,18 +7,7 @@ const Zomato = (props) => {
     const [latitude, setLatitude] = useState(props.latitude);
     const [longitude, setLongitude] = useState(props.longitude);
     const [restaurants, setRestaurants] = useState([]);
-
-    // const getLocation = () => {
-    //     if (navigator.geolocation) {
-    //       navigator.geolocation.getCurrentPosition(showPosition);
-    //     } else {
-    //       console.log("Geolocation is not supported by this browser.");
-    //     }
-    //   };
-
-    //   function showPosition(position) {
-    //     console.log("Latitude: ", position.coords.latitude, "Longitude: " + position.coords.longitude);
-    //   };
+    const [weather, setRestaurants] = useState([]);
 
     const fetchRestaurants = () => {
 
@@ -28,11 +17,16 @@ const Zomato = (props) => {
         // setLatitude('39.9572992');
         // setLongitude('-86.1208576');
 
+        let baseURL = 'https://developers.zomato.com/api/v2.1/search?';
+        let searchString = `lat=${latitude}&lon=${longitude}`;
+        let ZOMATO_API_KEY = "ac470f024f2131c285d68377ed5cc6d0";
+        
+
         fetch(`https://developers.zomato.com/api/v2.1/search?lat=${latitude}&lon=${longitude}`, {
             method: 'GET',
             headers:    new Headers ({
                 'Content-Type': 'application/json',
-                'user-key': process.env.REACT_APP_ZOMATO_API_KEY
+                'user-key': ZOMATO_API_KEY
             })
         })
         .then(res => res.json())
