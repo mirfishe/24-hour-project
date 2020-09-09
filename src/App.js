@@ -55,18 +55,13 @@ function App() {
     );
   };
 
-  const geolocationAvailableError = () => {
-    return !geolocationAvailable ? (
-      <h2>Geolocation is not supported by this browser.</h2>
-    ) : (
-      ""
-    );
-  };
 
   return (
     <div>
       <h1 className="applicationHeader">24 Hour Project</h1>
-      {locationDataFound ? locationComponents() : geolocationAvailableError()}
+      {console.log(locationDataFound)}
+      {console.log(geolocationAvailable)}
+      {locationDataFound ? locationComponents() : <h2>Geolocation is not supported by this browser.</h2>}
     </div>
   );
 }
