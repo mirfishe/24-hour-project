@@ -16,14 +16,15 @@ const WeatherResults = (props) => {
     return(
         <div className="col">
                 <h2 className="text-center">{weatherData.name}</h2>
+                <h5>Weather Condition</h5>
                 <p>{weatherData.weather[0].main}</p>
                 { temperatureType == 'Fahrenheit' ? 
                 <>
-                {temperatureFahrenheit}&#176; <Button className="ml-2 mb-3" color="secondary" size="sm" onClick={() => {setTemperatureType('Celsius')}}>Change to Celsius</Button> 
+                {temperatureFahrenheit}&#176; <br /> <Button className="ml-2 mb-3" color="secondary" size="sm" onClick={() => {setTemperatureType('Celsius')}}>Change to Celsius</Button> 
                 </>
                 :
                 <>
-                {temperatureCelsius}&#176; <Button className="ml-2 mb-3" color="secondary" size="sm" onClick={() => {setTemperatureType('Fahrenheit')}}>Change to Fahrenheit</Button>
+                {temperatureCelsius}&#176; <br /> <Button className="ml-2 mb-3" color="secondary" size="sm" onClick={() => {setTemperatureType('Fahrenheit')}}>Change to Fahrenheit</Button>
                 </>
                 }
                 <h5>Humidity</h5>
