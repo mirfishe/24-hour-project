@@ -11,9 +11,13 @@ const WeatherResults = (props) => {
 
     return(
         <Container>
+                <h5>Location</h5>
                 <p>{weatherData.name}</p>
+                <h5>Temperature</h5>
                 <p>{weatherData.main.temp}</p>
+                <h5>Weather Conditions</h5>
                 <p>{weatherData.weather[0].main}</p>
+                <h5>Wind Speed</h5>
                 <p>{weatherData.wind.speed}</p>
         </Container>
     )
