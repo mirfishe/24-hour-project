@@ -17,7 +17,7 @@ const WeatherResults = (props) => {
         <Col>
                 <h2>Weather</h2>
                 <h4>{weatherData.name}</h4>
-                <p>{weatherData.weather[0].main}</p>
+                <p><strong>Currently</strong> {weatherData.weather[0].main}</p>
                 { temperatureType === 'Fahrenheit' ? 
                 <>
                 {temperatureFahrenheit}&#176; <br /> <Button className="ml-2 mb-3" color="secondary" size="sm" onClick={() => {setTemperatureType('Celsius')}}>Change to Celsius</Button> 
