@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {Container} from 'reactstrap';
+import {Container, Row} from 'reactstrap';
 import './Zomato.css';
+import Restaurant from './Restaurant';
 
 const Zomato = (props) => {
 
@@ -29,7 +30,7 @@ const Zomato = (props) => {
             })
         })
         .then(res => res.json())
-        .then(restaurantData => {setRestaurants(restaurantData); console.log(restaurantData);})
+        .then(restaurantData => setRestaurants(restaurantData.restaurants))
         .catch(err => console.log(err))
         
     };
@@ -49,7 +50,10 @@ const Zomato = (props) => {
 
     return (
         <Container className="border">
-            Zomato
+            <Row>
+            {/* {restaurants.length} */}
+            {restaurants.length > 0 ? restaurants.map(restaurant => <Restaurant restaurant={restaurant} />) : ''}
+            </Row>
         </Container>
     );
 };
