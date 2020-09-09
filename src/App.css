@@ -17,3 +17,9 @@ body {
 .border{
   align-content: center;
 }
+
+h1{
+  text-align: center;
+  font-size: 300%;
+  text-shadow: slategray 2px 2px;
+}
