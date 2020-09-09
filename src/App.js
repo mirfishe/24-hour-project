@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
+import {Container, Row} from 'reactstrap';
 import NASA from "./components/NASA/NASA";
 import OpenWeather from "./components/OpenWeather/OpenWeather";
 import Zomato from "./components/Zomato/Zomato";
@@ -40,13 +41,17 @@ function App() {
 
   const locationComponents = () => {
     return (
-      <div>
-        <div className="flexDiv">
+      <Container>
+        <Row className="justify-content-center">
           <OpenWeather latitude={latitude} longitude={longitude} />
           <NASA latitude={latitude} longitude={longitude} />
-        </div>
+        </Row>
+        <Row className="justify-content-center">
+        <Col>
         <Zomato latitude={latitude} longitude={longitude} />
-      </div>
+        </Col>
+        </Row>
+      </Container>
     );
   };
 
