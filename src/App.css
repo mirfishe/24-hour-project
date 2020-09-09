@@ -5,8 +5,11 @@
 /* body */
 body {
   padding: 25px;
-  background-color: #2fa2a9;
-  background-image: linear-gradient(#7fc9cc,#2fa2a9 80%)
+  /* background-color: #2fa2a9; */
+  /* background-image: linear-gradient(#7fc9cc,#2fa2a9 80%); */
+ background-color: #037ade;
+background-image: linear-gradient(315deg, #046dc3 0%, #2faf95 74%);
+
 }
 
 .flexDiv{
