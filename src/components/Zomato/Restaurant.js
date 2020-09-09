@@ -8,7 +8,7 @@ const Restaurant = (props) => {
 
     return (
         <Col md="4">
-            <Card id={props.restaurant.restaurant.id}>
+            <Card id="card">
                 <h3>
                 <CardTitle>{props.restaurant.restaurant.name}</CardTitle>
                 </h3>
