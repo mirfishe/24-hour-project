@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
-import NASA from './components/NASA/NASA';
-import OpenWeather from  './components/OpenWeather/OpenWeather';
-import Zomato from './components/Zomato/Zomato';
+import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+import NASA from "./components/NASA/NASA";
+import OpenWeather from "./components/OpenWeather/OpenWeather";
+import Zomato from "./components/Zomato/Zomato";
 
 function App() {
-
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
   const [locationDataFound, setLocationDataFound] = useState(false);
 
   useEffect(() => {
@@ -34,26 +33,24 @@ function App() {
     if (latitude && longitude) {
       // console.log("Latitude: ", latitude, "Longitude: " + longitude);
       setLocationDataFound(true);
-    };
+    }
   }, [latitude, longitude]);
 
-const locationComponents = () => {
-  return (
-    <div>
-    <NASA latitude={latitude} longitude={longitude} />
-    <OpenWeather latitude={latitude} longitude={longitude} />
-    <Zomato latitude={latitude} longitude={longitude} />
-    </div>
-  );
-};
+  const locationComponents = () => {
+    return (
+      <div className="main">
+        <div className="mainDiv">
+          <div className="flexDiv">
+            <OpenWeather latitude={latitude} longitude={longitude} />
+            <NASA latitude={latitude} longitude={longitude} />
+          </div>
+          <Zomato latitude={latitude} longitude={longitude} />
+        </div>
+      </div>
+    );
+  };
 
-  return (
-    <div>
-      {
-        locationDataFound ? locationComponents() : ''
-      }
-    </div>
-  );
+  return <div>{locationDataFound ? locationComponents() : ""}</div>;
 }
 
 export default App;
