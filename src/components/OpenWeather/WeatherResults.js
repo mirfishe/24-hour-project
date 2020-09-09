@@ -1,30 +1,35 @@
 import React, { useState } from 'react';
-import {Container} from 'reactstrap';
+import {Container, Button} from 'reactstrap';
 import './WeatherResults.css';
 
 const WeatherResults = (props) => {
 
     // console.log(props);
     let weatherData = props.weatherData;
-    // console.log(weatherData);
+    console.log(weatherData);
 
     const [temperatureKelvin, setTemperatureKelvin] = useState(weatherData.main.temp);
-    const [temperatureFahrenheit, setTemperatureFahrenheit] = useState(((weatherData.main.temp-273.15)*1.8)+32);
-    const [temperatureCelsius,  setTemperatureCelsius] = useState(weatherData.main.temp-273.15);
+    const [temperatureFahrenheit, setTemperatureFahrenheit] = useState(Math.floor(((weatherData.main.temp-273.15)*1.8)+32));
+    const [temperatureCelsius,  setTemperatureCelsius] = useState(Math.floor(weatherData.main.temp-273.15));
+    const [temperatureType,  setTemperatureType] = useState('Fahrenheit');
+
+
 
 
     return(
         <Container>
-                <h5>Location</h5>
-                <p>{weatherData.name}</p>
-                <h5>Temperature</h5>
-                <p>Kelvin {temperatureKelvin}</p>
-                <p>Fahrenheit {temperatureFahrenheit}</p>
-                <p>Celsius {temperatureCelsius}</p>
-                <h5>Weather Conditions</h5>
+                <h2>{weatherData.name}</h2>
                 <p>{weatherData.weather[0].main}</p>
-                <h5>Wind Speed</h5>
-                <p>{weatherData.wind.speed}</p>
+                { temperatureType == 'Fahrenheit' ? 
+                <>
+                {temperatureFahrenheit}&#176; <Button color="secondary ml=2" onClick={() => {setTemperatureType('Celsius')}}>Change to Celsius</Button> 
+                </>
+                :
+                <>
+                {temperatureCelsius}&#176; <Button color="secondary ml=2" onClick={() => {setTemperatureType('Fahrenheit')}}>Change to Fahrenheit</Button>
+                </>
+                }
+                
         </Container>
     )
 }
