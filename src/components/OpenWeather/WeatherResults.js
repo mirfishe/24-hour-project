@@ -22,14 +22,15 @@ const WeatherResults = (props) => {
                 <h2>Weather</h2>
                 <h4>{weatherData.name}</h4>
                 <p><strong>Currently</strong> {weatherData.weather[0].main}</p>
+                <h5>Temperature</h5>
                 { temperatureType === 'Fahrenheit' ? 
-                <>
-                {temperatureFahrenheit}&#176; <br /> <Button className="ml-2 mb-3" color="secondary" size="sm" onClick={() => {setTemperatureType('Celsius')}}>Change to Celsius</Button> 
-                </>
+                <div className="temp">
+                {temperatureFahrenheit}&#176; <Button className="ml-2" color="primary" size="sm" onClick={() => {setTemperatureType('Celsius')}}>Change to &deg;C</Button> 
+                </div>
                 :
-                <>
-                {temperatureCelsius}&#176; <br /> <Button className="ml-2 mb-3" color="secondary" size="sm" onClick={() => {setTemperatureType('Fahrenheit')}}>Change to Fahrenheit</Button>
-                </>
+                <div className="temp">
+                {temperatureCelsius}&#176; <Button className="ml-2" color="secondary" size="sm" onClick={() => {setTemperatureType('Fahrenheit')}}>Change to &deg;F</Button>
+                </div>
                 }
                 <h5>Humidity</h5>
                 <p> {weatherData.main.humidity}%</p>
