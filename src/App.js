@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div>
-      <h1>24 Hour Project</h1>
+      <h1 className="applicationHeader">24 Hour Project</h1>
       {locationDataFound ? locationComponents() : geolocationAvailableError()}
     </div>
   );

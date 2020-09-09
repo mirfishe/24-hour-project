@@ -18,7 +18,7 @@ body {
   align-content: center;
 }
 
-h1{
+.applicationHeader {
   text-align: center;
   font-size: 300%;
   text-shadow: slategray 2px 2px;

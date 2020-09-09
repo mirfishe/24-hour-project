@@ -7,14 +7,6 @@
     align-content: center;
 }
 
-h3{
-    font-style: italic;
-}
-
-h5{
-    text-decoration: underline;
-}
-
 #card{
     width: 20em;
     text-align: center;
