@@ -50,11 +50,7 @@ const NASA = (props) => {
 
     return (
         <Col className="p-2">
-            {/* <h2>{location}</h2> */}
-
            <img className="loc-img" src={NASAData} alt='map of your area'/>
-
-           <img src={NASAData} alt='map of your area'/>
         </Col>
     );
 };
