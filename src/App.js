@@ -10,6 +10,7 @@ function App() {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [locationDataFound, setLocationDataFound] = useState(false);
+  const [geolocationAvailable, setGeolocationAvailable] = useState(true);
 
   useEffect(() => {
     getLocation();
@@ -21,6 +22,7 @@ function App() {
       navigator.geolocation.getCurrentPosition(showPosition);
     } else {
       console.log("Geolocation is not supported by this browser.");
+      setGeolocationAvailable(false);
     }
   };
 
@@ -47,10 +49,17 @@ const locationComponents = () => {
   );
 };
 
+const geolocationAvailableError = () => {
+  return(
+    !geolocationAvailable ? <h2>Geolocation is not supported by this browser.</h2> : ''
+  );
+};
+
   return (
     <div>
+      <h1>24 Hour Project</h1>
       {
-        locationDataFound ? locationComponents() : ''
+        locationDataFound ? locationComponents() : geolocationAvailableError()
       }
     </div>
   );

@@ -18,11 +18,11 @@ const Zomato = (props) => {
         // setLongitude('-86.1208576');
 
         let baseURL = 'https://developers.zomato.com/api/v2.1/search?';
-        let searchString = `lat=${latitude}&lon=${longitude}`;
+        let searchString = `lat=${latitude}&lon=${longitude}&&sort=real_distance`;
         let zomatoAPIKey= "ac470f024f2131c285d68377ed5cc6d0";
         
 
-        fetch(`https://developers.zomato.com/api/v2.1/search?lat=${latitude}&lon=${longitude}`, {
+        fetch(baseURL + searchString, {
             method: 'GET',
             headers:    new Headers ({
                 'Content-Type': 'application/json',
