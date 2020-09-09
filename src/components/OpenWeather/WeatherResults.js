@@ -8,6 +8,10 @@ const WeatherResults = (props) => {
     let weatherData = props.weatherData;
     // console.log(weatherData);
 
+    // convert wind speed from m/s to mph
+    let windSpeed = (weatherData.wind.speed * 2.23694).toPrecision(2);
+    let pressure = (weatherData.main.pressure * 0.030).toPrecision(4);
+
     // const [temperatureKelvin, setTemperatureKelvin] = useState(weatherData.main.temp);
     const [temperatureFahrenheit, setTemperatureFahrenheit] = useState(Math.floor(((weatherData.main.temp-273.15)*1.8)+32));
     const [temperatureCelsius,  setTemperatureCelsius] = useState(Math.floor(weatherData.main.temp-273.15));
@@ -30,9 +34,9 @@ const WeatherResults = (props) => {
                 <h5>Humidity</h5>
                 <p> {weatherData.main.humidity}%</p>
                 <h5>Atmospheric Pressure</h5>
-                <p> {weatherData.main.pressure}</p>
+                <p> {pressure} in</p>
                 <h5>Wind Speed</h5>
-                <p>{weatherData.wind.speed}</p>
+                <p>{windSpeed} mph</p>
         </div>
     )
 }
