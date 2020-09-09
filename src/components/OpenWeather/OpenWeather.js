@@ -13,7 +13,7 @@ const OpenWeather = (props) => {
     const [weatherData, setWeatherData] = useState({});
     
     const fetchWeather = () => {
-    let url = `${baseURL}?lat=${latitude}&lon=${longitude}&appid=${key}`
+    let url = `${baseURL}?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`
     fetch(url)
     .then(res => res.json())
     .then(weatherData => setWeatherData(weatherData))
