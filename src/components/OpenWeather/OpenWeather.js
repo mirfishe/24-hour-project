@@ -30,8 +30,7 @@ const OpenWeather = (props) => {
     // }, [weatherData]);
 
     return (
-        <Container className="border">
-            <h2>Weather</h2>
+        <Container>
             {weatherData.hasOwnProperty('weather') ? <WeatherResults weatherData={weatherData} /> : ''}
         </Container>
     );
