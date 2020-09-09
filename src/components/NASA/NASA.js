@@ -10,7 +10,7 @@ const api_key = 'BYJLRhF7aUhylkiuwEYnRjfyTgdlQPb8EyGfBjZr'
 const NASA = (props) => {
 
     const [NASAData, setNASAData] = useState(imgPlacehold);
-    const [location, setLocation] = useState('Your Location')
+    // const [location, setLocation] = useState('Your Location')
 
     // const getLocation = () => {
 
@@ -49,10 +49,10 @@ const NASA = (props) => {
     }, []);
 
     return (
-        <Container>
+        <div className="col p-2">
             {/* <h2>{location}</h2> */}
            <img src={NASAData} alt='map of your area'/>
-        </Container>
+        </div>
     );
 };
 
