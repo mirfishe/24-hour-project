@@ -8,7 +8,7 @@ const api_key = 'BYJLRhF7aUhylkiuwEYnRjfyTgdlQPb8EyGfBjZr'
 
 const NASA = (props) => {
 
-    const [NASAData, setNASAData] = useState({});
+    const [NASAData, setNASAData] = useState(imgPlacehold);
     
     const fetchNASA = () => {
     let url = `${baseNASA_URL}?lon=${props.longitude}&lat=${props.latitude}&dim=0.10&date=2016-01-01&api_key=${api_key}`
@@ -28,7 +28,7 @@ const NASA = (props) => {
 
     return (
         <Container className="border">
-           <img src={NASAData} alt={imgPlacehold}/>
+           <img src={NASAData} alt='map of your area'/>
         </Container>
     );
 };
