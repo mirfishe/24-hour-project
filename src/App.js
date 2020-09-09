@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
-import NASA from './components/NASA/NASA';
-import OpenWeather from  './components/OpenWeather/OpenWeather';
-import Zomato from './components/Zomato/Zomato';
+import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+import NASA from "./components/NASA/NASA";
+import OpenWeather from "./components/OpenWeather/OpenWeather";
+import Zomato from "./components/Zomato/Zomato";
 
 function App() {
-
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
   const [locationDataFound, setLocationDataFound] = useState(false);
   const [geolocationAvailable, setGeolocationAvailable] = useState(true);
 
@@ -36,31 +35,33 @@ function App() {
     if (latitude && longitude) {
       // console.log("Latitude: ", latitude, "Longitude: " + longitude);
       setLocationDataFound(true);
-    };
+    }
   }, [latitude, longitude]);
 
-const locationComponents = () => {
-  return (
-    <div>
-    <NASA latitude={latitude} longitude={longitude} />
-    <OpenWeather latitude={latitude} longitude={longitude} />
-    <Zomato latitude={latitude} longitude={longitude} />
-    </div>
-  );
-};
+  const locationComponents = () => {
+    return (
+      <div>
+        <div className="flexDiv">
+          <OpenWeather latitude={latitude} longitude={longitude} />
+          <NASA latitude={latitude} longitude={longitude} />
+        </div>
+        <Zomato latitude={latitude} longitude={longitude} />
+      </div>
+    );
+  };
 
-const geolocationAvailableError = () => {
-  return(
-    !geolocationAvailable ? <h2>Geolocation is not supported by this browser.</h2> : ''
-  );
-};
+  const geolocationAvailableError = () => {
+    return !geolocationAvailable ? (
+      <h2>Geolocation is not supported by this browser.</h2>
+    ) : (
+      ""
+    );
+  };
 
   return (
     <div>
       <h1>24 Hour Project</h1>
-      {
-        locationDataFound ? locationComponents() : geolocationAvailableError()
-      }
+      {locationDataFound ? locationComponents() : geolocationAvailableError()}
     </div>
   );
 }
