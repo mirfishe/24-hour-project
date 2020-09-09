@@ -12,7 +12,7 @@ const NASA = (props) => {
     
     const fetchNASA = () => {
     let url = `${baseNASA_URL}?lon=${props.longitude}&lat=${props.latitude}&dim=0.10&date=2016-01-01&api_key=${api_key}`
-    console.log(url);
+    // console.log(url);
     fetch(url)
     .then(res => res.blob())
     .then(photo => {

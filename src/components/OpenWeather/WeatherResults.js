@@ -11,8 +11,10 @@ const WeatherResults = (props) => {
 
     return(
         <Container>
-            <h2>Weather</h2>
-                {weatherData.name}
+                <p>{weatherData.name}</p>
+                <p>{weatherData.main.temp}</p>
+                <p>{weatherData.weather[0].main}</p>
+                <p>{weatherData.wind.speed}</p>
         </Container>
     )
 }
