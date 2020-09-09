@@ -30,7 +30,7 @@ const OpenWeather = (props) => {
     // }, [weatherData]);
 
     return (
-        <Col>
+        <Col md="3">
             {weatherData.hasOwnProperty('weather') ? <WeatherResults weatherData={weatherData} /> : ''}
         </Col>
     );
