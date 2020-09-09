@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Container} from 'reactstrap';
+import {Col} from 'reactstrap';
 import './OpenWeather.css';
 import WeatherResults from "./WeatherResults"
 
@@ -30,9 +30,9 @@ const OpenWeather = (props) => {
     // }, [weatherData]);
 
     return (
-        <Container>
+        <Col>
             {weatherData.hasOwnProperty('weather') ? <WeatherResults weatherData={weatherData} /> : ''}
-        </Container>
+        </Col>
     );
 };
 
