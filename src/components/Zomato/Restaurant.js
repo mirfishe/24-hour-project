@@ -8,12 +8,12 @@ const Restaurant = (props) => {
 
     return (
         <Col md="4">
-            <Card id="card">
+            <Card id="card" className="pt-2">
                 <h3>
                 <CardTitle>{props.restaurant.restaurant.name}</CardTitle>
                 </h3>
                 <CardBody>
-                    <h5>Type of Food</h5>
+                    <h5>Cuisine</h5>
                     {props.restaurant.restaurant.cuisines !== '' ? <CardText>{props.restaurant.restaurant.cuisines}</CardText> : <CardText>No Data Available</CardText>}
                     <h5>Average Price</h5>
                     {/* <CardText>{props.restaurant.restaurant.average_cost_for_two}</CardText> */}
