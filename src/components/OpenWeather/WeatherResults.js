@@ -15,8 +15,8 @@ const WeatherResults = (props) => {
 
     return(
         <div className="col">
-                <h2 className="text-center">{weatherData.name}</h2>
-                <h5>Weather Condition</h5>
+                <h2>Weather</h2>
+                <h4>{weatherData.name}</h4>
                 <p>{weatherData.weather[0].main}</p>
                 { temperatureType == 'Fahrenheit' ? 
                 <>
