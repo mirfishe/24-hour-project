@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-import {Container, Row} from 'reactstrap';
+import {Container, Col, Row} from 'reactstrap';
 import NASA from "./components/NASA/NASA";
 import OpenWeather from "./components/OpenWeather/OpenWeather";
 import Zomato from "./components/Zomato/Zomato";
