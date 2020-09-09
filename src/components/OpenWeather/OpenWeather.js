@@ -24,10 +24,15 @@ const OpenWeather = (props) => {
         fetchWeather();
     }, []);
 
+    useEffect(() => {
+        console.log(weatherData);
+        console.log(weatherData);
+    }, [weatherData]);
 
     return (
         <Container className="border">
-            {weatherData ? <WeatherResults weatherData={weatherData} /> : ''}
+            <h2>Weather</h2>
+            {weatherData.hasOwnProperty('weather') ? <WeatherResults weatherData={weatherData} /> : ''}
         </Container>
     );
 };

@@ -9,6 +9,7 @@ function App() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [locationDataFound, setLocationDataFound] = useState(false);
+  const [geolocationAvailable, setGeolocationAvailable] = useState(true);
 
   useEffect(() => {
     getLocation();
@@ -20,6 +21,7 @@ function App() {
       navigator.geolocation.getCurrentPosition(showPosition);
     } else {
       console.log("Geolocation is not supported by this browser.");
+      setGeolocationAvailable(false);
     }
   };
 
@@ -38,19 +40,30 @@ function App() {
 
   const locationComponents = () => {
     return (
-      <div className="main">
-        <div className="mainDiv">
-          <div className="flexDiv">
-            <OpenWeather latitude={latitude} longitude={longitude} />
-            <NASA latitude={latitude} longitude={longitude} />
-          </div>
-          <Zomato latitude={latitude} longitude={longitude} />
+      <div>
+        <div className="flexDiv">
+          <OpenWeather latitude={latitude} longitude={longitude} />
+          <NASA latitude={latitude} longitude={longitude} />
         </div>
+        <Zomato latitude={latitude} longitude={longitude} />
       </div>
     );
   };
 
-  return <div>{locationDataFound ? locationComponents() : ""}</div>;
+  const geolocationAvailableError = () => {
+    return !geolocationAvailable ? (
+      <h2>Geolocation is not supported by this browser.</h2>
+    ) : (
+      ""
+    );
+  };
+
+  return (
+    <div>
+      <h1>24 Hour Project</h1>
+      {locationDataFound ? locationComponents() : geolocationAvailableError()}
+    </div>
+  );
 }
 
 export default App;
