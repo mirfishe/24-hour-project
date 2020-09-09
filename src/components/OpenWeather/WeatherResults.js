@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Container, Button} from 'reactstrap';
+import {Col, Button} from 'reactstrap';
 import './WeatherResults.css';
 
 const WeatherResults = (props) => {
@@ -14,11 +14,11 @@ const WeatherResults = (props) => {
     const [temperatureType,  setTemperatureType] = useState('Fahrenheit');
 
     return(
-        <div className="col">
+        <Col>
                 <h2>Weather</h2>
                 <h4>{weatherData.name}</h4>
                 <p>{weatherData.weather[0].main}</p>
-                { temperatureType == 'Fahrenheit' ? 
+                { temperatureType === 'Fahrenheit' ? 
                 <>
                 {temperatureFahrenheit}&#176; <br /> <Button className="ml-2 mb-3" color="secondary" size="sm" onClick={() => {setTemperatureType('Celsius')}}>Change to Celsius</Button> 
                 </>
@@ -33,7 +33,7 @@ const WeatherResults = (props) => {
                 <p> {weatherData.main.pressure}</p>
                 <h5>Wind Speed</h5>
                 <p>{weatherData.wind.speed}</p>
-        </div>
+        </Col>
     )
 }
 

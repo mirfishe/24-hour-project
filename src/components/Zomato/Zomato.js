@@ -49,12 +49,10 @@ const Zomato = (props) => {
 
 
     return (
-        <Container>
             <Row>
             {/* {restaurants.length} */}
             {restaurants.length > 0 ? restaurants.map(restaurant => <Restaurant restaurant={restaurant} />) : ''}
             </Row>
-        </Container>
     );
 };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import {Container} from 'reactstrap';
+import {Col} from 'reactstrap';
 import './NASA.css';
 import imgPlacehold from './assets/Map-2-icon.png';
 
@@ -49,10 +49,10 @@ const NASA = (props) => {
     }, []);
 
     return (
-        <div className="col p-2">
+        <Col className="p-2">
             {/* <h2>{location}</h2> */}
            <img src={NASAData} alt='map of your area'/>
-        </div>
+        </Col>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {Card, CardBody, CardTitle, CardText, Col} from 'reactstrap';
 import './Restaurant.css';
 
@@ -23,7 +23,7 @@ const Restaurant = (props) => {
                     <h5>Address</h5>
                     <CardText>{props.restaurant.restaurant.location.address}</CardText>
                     <h5>Rating</h5>
-                    {props.restaurant.restaurant.user_rating.rating_text == 'Not rated' ? <CardText>No Rating Available</CardText> : <CardText>{props.restaurant.restaurant.user_rating.aggregate_rating}, {props.restaurant.restaurant.user_rating.rating_text}</CardText>}
+                    {props.restaurant.restaurant.user_rating.rating_text === 'Not rated' ? <CardText>No Rating Available</CardText> : <CardText>{props.restaurant.restaurant.user_rating.aggregate_rating}, {props.restaurant.restaurant.user_rating.rating_text}</CardText>}
                 </CardBody>
             </Card>
         </Col>
