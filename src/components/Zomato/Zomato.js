@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {Container, Row} from 'reactstrap';
+import React, {useState, useEffect} from 'react';
+import {Row} from 'reactstrap';
 import './Zomato.css';
 import Restaurant from './Restaurant';
 

@@ -19,7 +19,6 @@ const WeatherResults = (props) => {
 
     return(
         <Col>
-                <h2>Weather</h2>
                 <h4>{weatherData.name}</h4>
                 <p><strong>Currently</strong> {weatherData.weather[0].main}</p>
                 <h5>Temperature</h5>
