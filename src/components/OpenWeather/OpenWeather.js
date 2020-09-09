@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Container} from 'reactstrap';
+import {Col} from 'reactstrap';
 import './OpenWeather.css';
 import WeatherResults from "./WeatherResults"
 
@@ -13,6 +13,7 @@ const OpenWeather = (props) => {
     const [weatherData, setWeatherData] = useState({});
     
     const fetchWeather = () => {
+    // let url = `${baseURL}?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`
     let url = `${baseURL}?lat=${latitude}&lon=${longitude}&appid=${key}`
     fetch(url)
     .then(res => res.json())
@@ -24,16 +25,14 @@ const OpenWeather = (props) => {
         fetchWeather();
     }, []);
 
-    useEffect(() => {
-        console.log(weatherData);
-        console.log(weatherData);
-    }, [weatherData]);
+    // useEffect(() => {
+    //     console.log(weatherData);
+    // }, [weatherData]);
 
     return (
-        <Container className="border">
-            <h2>Weather</h2>
+        <Col md="3">
             {weatherData.hasOwnProperty('weather') ? <WeatherResults weatherData={weatherData} /> : ''}
-        </Container>
+        </Col>
     );
 };
 
