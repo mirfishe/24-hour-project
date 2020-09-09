@@ -13,6 +13,7 @@ const OpenWeather = (props) => {
     const [weatherData, setWeatherData] = useState({});
     
     const fetchWeather = () => {
+    // let url = `${baseURL}?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`
     let url = `${baseURL}?lat=${latitude}&lon=${longitude}&appid=${key}`
     fetch(url)
     .then(res => res.json())
@@ -24,10 +25,9 @@ const OpenWeather = (props) => {
         fetchWeather();
     }, []);
 
-    useEffect(() => {
-        console.log(weatherData);
-        console.log(weatherData);
-    }, [weatherData]);
+    // useEffect(() => {
+    //     console.log(weatherData);
+    // }, [weatherData]);
 
     return (
         <Container className="border">

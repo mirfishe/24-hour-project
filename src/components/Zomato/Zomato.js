@@ -18,7 +18,7 @@ const Zomato = (props) => {
         // setLongitude('-86.1208576');
 
         let baseURL = 'https://developers.zomato.com/api/v2.1/search?';
-        let searchString = `lat=${latitude}&lon=${longitude}&&sort=real_distance`;
+        let searchString = `lat=${latitude}&lon=${longitude}&sort=real_distance&radius=500`;
         let zomatoAPIKey= "ac470f024f2131c285d68377ed5cc6d0";
         
 
