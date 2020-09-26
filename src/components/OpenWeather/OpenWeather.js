@@ -3,7 +3,7 @@ import {Col} from 'reactstrap';
 import './OpenWeather.css';
 import WeatherResults from "./WeatherResults"
 
-const baseURL="http://api.openweathermap.org/data/2.5/weather"
+const baseURL="https://api.openweathermap.org/data/2.5/weather"
 const key = "203dcab38e74e0dd2117b8d81cc20e68"
 
 const OpenWeather = (props) => {
